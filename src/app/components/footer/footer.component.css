@@ -1,0 +1,16 @@
+.bg-dark {
+    background: url("../../../assets/img/fdo_Header.jpg") repeat-x center center fixed;
+     
+   
+    
+      animation: animatedBackground 10s linear infinite alternate;
+  }
+
+   .fdoFoter{
+    background: url("../../../assets/img/fdo_Header.jpg") repeat-x left bottom;
+     
+   
+    
+    animation: animatedBackground 10s linear infinite alternate;
+
+  }  

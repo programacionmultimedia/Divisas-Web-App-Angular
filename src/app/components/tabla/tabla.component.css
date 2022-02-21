@@ -1,0 +1,35 @@
+body,
+html,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+span,
+label,
+li,
+small,
+a ,
+input,
+option,
+select,
+button,
+table,
+th,
+tr,td{
+    font-family: 'Raleway', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+       
+}
+h2{font-size: 2.4rem;}

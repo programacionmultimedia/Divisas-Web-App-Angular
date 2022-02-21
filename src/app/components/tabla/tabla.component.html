@@ -1,0 +1,36 @@
+<div class="container my-5" [hidden]="!tablaVisible">
+    <h2 class="text-center my-4">{{'convertir' | translate }} <span class="fs-3 fw-light">{{simboloInicial}} → {{simbolo}}</span></h2>
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="column p-4 ">
+            <table class="table table-striped table-bordered table-light text-center">
+                <thead>
+                    <tr>
+                       
+                        <th scope="col"><img src="../assets/img/{{monedaInicial}}.jpg" width="50" height="26"
+                            class="d-inline-block align-text-top"> {{monedaInicial | uppercase}}</th>
+                        <th scope="col"><img src="../assets/img/{{monedaFinal}}.jpg" width="50" height="26"
+                            class="d-inline-block align-text-top"> {{monedaFinal | uppercase}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                    <ng-container *ngFor="let c of cantidadesConversion;index as i">
+                        
+
+                        <tr>
+                           
+                            <td class="display-6"><span class="fs-4 fw-light ">{{simboloInicial}}</span>{{c.valor}} </td>
+                            <td class="display-6"><span class="fs-4 fw-light ">{{simbolo}}</span>{{c.valor * rate  | number}}</td>
+                            
+                        </tr>
+                    </ng-container>
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+

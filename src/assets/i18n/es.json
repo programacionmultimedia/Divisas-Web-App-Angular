@@ -1,0 +1,25 @@
+{
+    "boton":"CALCULAR",
+    "titulo":"Cambio de Divisas",
+    "importe":"Importe",
+    "de":"De:",
+    "a":"a:",
+    "seleccione":"Seleccione moneda",
+    "intro":"Calculadora de divisas a tiempo real a través de API",
+    "escriba":"Introduzca un importe",
+    "calcula":"Calcula cuánto vale tu dinero en tiempo real",
+    "necesita":"¿Necesita saber cuándo una moneda alcanza una tarifa específica? Las alertas te permitirán saber cuándo la tarifa que necesitas se encuentra disponible en las divisas escogidas.",
+    "boton-alerta":"CREAR UNA ALERTA",
+    "alerta-creada":"Alerta creada correctamente",
+    "alerta-telefono":"Ahora ya tienes esta alerta en tu teléfono",
+    "alerta-texto":"Las alertas te permitirán saber cuándo la tarifa que necesitas se encuentra disponible en las divisas escogidas.",
+    "newsletter":"Suscríbete a nuestra newsletter ",
+    "email":"Tu Email",
+    "enviar":"Enviar",
+    "beneficios":"¿Cuáles son los beneficios del mercado de divisas?",
+    "diversificar":"Diversificar el riesgo de las inversiones. Protegerse ante una devaluación de la moneda local. Acceder a productos y soluciones en moneda extranjera. Obtener mayores ingresos debido a la apreciación de dicha moneda.",
+    "suscripcion-hecha":"Suscripción realizada con éxito",
+    "suscripcion-info":"Ya puede comenzar a diversificar su inversión en divisas",
+    "convertir":"Convertir de"
+    
+}

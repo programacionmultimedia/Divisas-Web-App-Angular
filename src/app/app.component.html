@@ -1,0 +1,183 @@
+<div class="container idiomas">
+
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a [ngClass]="{'nav-link':true, 'active':!espanolDeshabilitado, 'disabled': espanolDeshabilitado,'mano':true }" 
+                (click)='cambiarIdioma("es")'> <img src="../assets/img/espana.png" width="24" height="24"
+                    class="d-inline-block align-text-top">
+                Español</a>
+        </li>
+
+        <li class="nav-item">
+            <a [ngClass]="{'nav-link':true, 'active':!inglesDeshabilitado, 'disabled': inglesDeshabilitado , 'mano':true}" 
+                (click)='cambiarIdioma("en")' > <img src="../assets/img/reino-unido.png"> English</a>
+        </li>
+    </ul>
+
+
+</div>
+
+
+<div class="bg-dark text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">{{'titulo' | translate }}</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="fs-4 mb-4 blanco">{{'intro' | translate }}</p>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container my-5 ">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg ">
+
+        <div class="col-lg-6 p-3 p-lg-5 pt-lg-3">
+            <!--  <h4 class="mb-3">Aplica un cupón</h4> -->
+
+            <div class="row g-3">
+
+
+                <div class="col-12">
+                    <h4 class="form-label pb-3">{{'importe' | translate }}</h4>
+
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">→</span>
+                        <input type="text" class="form-control" aria-describedby="inputGroup-sizing-lg"
+                            [(ngModel)]="importe" (input)=habilitarCambio() placeholder="{{'escriba' | translate }}">
+                    </div>
+
+                    <h5 class="my-3">{{'de' | translate }}</h5>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="my-3">
+
+                <select (change)="habilitarCambio()" [ngClass]="'form-select form-select-lg mb-3'"
+                    aria-label=".form-select-lg example" [(ngModel)]="monedaInicial">
+                    <option disabled selected>{{'seleccione' | translate }}</option>
+                    <option  *ngFor="let p of paises" [ngValue]="p.id">{{p.name}}</option>
+                </select>
+
+
+                <h5 class="my-3">{{'a' | translate }}</h5>
+
+
+
+                <select (change)="habilitarCambio()" [(ngModel)]="monedaFinal"
+                    [ngClass]="'form-select form-select-lg mb-3'" aria-label=".form-select-lg example">
+                    <option  selected disabled>{{'seleccione' | translate }}</option>
+                    
+                    <ng-container *ngFor="let p of paises;index as i">
+                        <option *ngIf="p.id!=monedaInicial"  [ngValue]="p.id">{{p.name}}</option>
+                        
+                    </ng-container>
+                </select>
+
+
+            </div>
+            <div>
+                <button [disabled]="botonDeshabilitado" (click)="solicitarCambio()"
+                    class="w-100 btn btn-primary btn-lg my-3" type="button">{{'boton' | translate}}</button>
+            </div>
+
+
+        </div>
+
+
+
+
+        <div class="col-lg-6 p-3 p-lg-5 pt-lg-3 text-center">
+
+
+
+            <h2 id="calculo" class="">{{'calcula' | translate}}</h2>
+
+            <hr class="my-4">
+
+            <ng-container *ngIf="resultado!=0 && resultado!=null && importeTemporal==importe">
+
+
+
+                <h2 class="display-5">
+                    <span class="fs-4 fw-light ">{{simboloInicial}}</span>{{importe}} = 
+                    <span class="fs-4 fw-light ">{{simbolo}}</span>{{resultado | number}}
+                </h2>
+
+                <h6 class="text-primary">{{simboloInicial}}1 = {{simbolo}}{{rate}}</h6>
+
+                <p class="fs-3 my-2">{{fecha | date:'shortDate'}} <span class="fs-6 fw-light ">{{fecha |
+                        date:'shortTime'}}</span></p>
+                        <hr class="my-4">
+            </ng-container>
+           
+
+            <p class=" my-4">{{'necesita' | translate}}</p>
+            <button type="button" class="w-100 btn btn-lg my-3 btn-outline-primary" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">{{'boton-alerta' |
+                translate}}</button>
+
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasBottom"
+                aria-labelledby="offcanvasBottomLabel">
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title" id="offcanvasBottomLabel">{{'alerta-creada' | translate}}</h3>
+
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </symbol>
+                </svg>
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                        <use xlink:href="#check-circle-fill" />
+                    </svg>
+                    <div>
+                        {{'alerta-telefono' | translate}}
+                    </div>
+                </div>
+
+                <div class="offcanvas-body small text-center">
+
+                    <h6 class=" my-4 ">{{'alerta-texto' | translate}}</h6>
+                    <img src="../assets/img/ok.jpg">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<app-tabla [tablaVisible]="tablaVisible" [simbolo]="simbolo" [simboloInicial]="simboloInicial" [rate]="rate" [monedaInicial]="monedaInicial" [monedaFinal]="monedaFinal"></app-tabla>
+ 
+
+
+<app-footer></app-footer>
+
+
+  
+  <!-- <div>
+      
+    {{nodo | json}}
+
+  </div> -->
+
+
+
