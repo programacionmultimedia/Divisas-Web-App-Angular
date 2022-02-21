@@ -13,7 +13,7 @@
     <li>Animación CSS3</li>
   
 </ul>
-<p>Puedes verlo funcionando <a href="http://proyectofinal-raul.000webhostapp.com/" >aquí</a</p>
+<p>Puedes verlo funcionando <a href="http://proyectofinal-raul.000webhostapp.com/" >aquí </a></p>
 
 <h2>Construido con 🛠️</h2>
 <p>VS Code | Angular 13</p>
